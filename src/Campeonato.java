@@ -57,4 +57,12 @@ public class Campeonato {
             System.out.println("    " + jogadores[i].mostrarTotal() + "    ");
         }
     }
+
+    public void gravarEmArquivo(){
+
+    }
+
+    public void lerEmArquivo(){
+
+    }
 }

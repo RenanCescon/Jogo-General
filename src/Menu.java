@@ -33,8 +33,10 @@ public class Menu {
                 camp.mostrarCartela();
                 break;
             case 'e':
+                camp.gravarEmArquivo();
                 break;
             case 'f':
+                camp.lerEmArquivo();
                 break;
         }
     }
