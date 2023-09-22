@@ -5,7 +5,7 @@ public class Jogador {
     private General gen = new General();
     private Scanner sc = new Scanner(System.in);
 
-    public Jogador(){nome = null;}
+    public Jogador(){nome = "a";}
 
     public void adicionarNome(String n){nome = n;}
 
