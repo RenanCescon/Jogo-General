@@ -5,12 +5,15 @@ public class Campeonato {
     private int contJ = 0;
 
     public void incluirJogador(){
-        Scanner sc = new Scanner(System.in);
-        String n;
-        System.out.println("Digite o nome do novo jogador: ");
-        n = sc.nextLine();
-        jogadores[contJ].adicionarNome(n);
-        contJ++;
+        //Jogador aux = new Jogador();
+        if (contJ < 10){
+            Scanner sc = new Scanner(System.in);
+            String n;
+            System.out.println("Digite o nome do novo jogador: ");
+            n = sc.nextLine();
+            jogadores[contJ] = new Jogador(n);
+            contJ++;
+        }
     }
 
     public void excluirJogador(){
@@ -26,6 +29,9 @@ public class Campeonato {
                 contJ--;
                 break;
             }
+            else{
+                System.out.println("Não foi possível encontrar o jogador.");
+            }
         }
     }
 
@@ -33,8 +39,9 @@ public class Campeonato {
         for (int i = 0; i < 13; i++){
             for (int j = 0; j < contJ; j++){
                 jogadores[j].jogarDados();
-                jogadores[j].escolherJogada();
                 jogadores[j].mostrarJogadas();
+                System.out.println();
+                jogadores[j].escolherJogada();
             }
         }
     }
@@ -44,6 +51,7 @@ public class Campeonato {
         System.out.print("          ");
         for (int i = 0; i < contJ; i++) {
             System.out.print(jogadores[i].getNome());
+            System.out.println();
         }
         for (int i = 0; i < 13; i++) {
             System.out.print((i + 1) + "        ");

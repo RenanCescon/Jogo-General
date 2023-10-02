@@ -6,6 +6,7 @@ public class Jogador {
     private Scanner sc = new Scanner(System.in);
 
     public Jogador(){nome = "a";}
+    public Jogador(String n){nome = n;}
 
     public void adicionarNome(String n){nome = n;}
 

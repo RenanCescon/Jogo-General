@@ -12,6 +12,7 @@ public class Jogo {
         char c = 'z';
 
         while (c != 'g'){
+            System.out.println("Escolha sua opção: ");
             c = sc.nextLine().charAt(0);
             m.opcoes(c);
         }
