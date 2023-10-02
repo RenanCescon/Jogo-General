@@ -1,5 +1,6 @@
-public class General {
+import java.util.Scanner;
 
+public class General {
     private int[] dados = new int[5];
     private int[] jogadas = new int[13];
     private int pTotal = 0;
@@ -18,9 +19,11 @@ public class General {
     }
 
     public void imprimirDados(){
+        System.out.println("A sequência de dados foi: ");
         for (int i = 0; i < 5; i++){
             System.out.print(dados[i] + "  ");
         }
+        System.out.println();
     }
 
     public void imprimirJogadas(){
@@ -105,6 +108,14 @@ public class General {
     }
 
     public void pontuarJogada(int n){
+        if (jogadas[n - 1] != -1){
+            Scanner sc = new Scanner(System.in);
+            int aux;
+            System.out.println("Jogada inválida.");
+            System.out.println("Escolha a nova jogada: ");
+            aux = sc.nextInt();
+            pontuarJogada(aux);
+        }
         jogadas[n - 1] = validarJogada(n);
         pTotal += jogadas[n - 1];
     }

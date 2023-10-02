@@ -19,8 +19,9 @@ public class Campeonato {
     public void excluirJogador(){
         Scanner sc = new Scanner(System.in);
         String n;
-        System.out.println("Digite o nome do novo jogador: ");
+        System.out.println("Digite o nome do jogador a ser retirado: ");
         n = sc.nextLine();
+        int cont = 0;
 
         for (int i = 0; i < contJ; i++){
             if ((jogadores[i].getNome()).equals(n)){
@@ -29,9 +30,10 @@ public class Campeonato {
                 contJ--;
                 break;
             }
-            else{
-                System.out.println("Não foi possível encontrar o jogador.");
-            }
+            cont++;
+        }
+        if (cont == contJ){
+            System.out.println("Não foi possível encontrar o jogador.");
         }
     }
 
