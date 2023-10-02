@@ -58,13 +58,13 @@ public class Campeonato {
         for (int i = 0; i < 13; i++) {
             System.out.print((i + 1) + "        ");
             for (int j = 0; j < contJ; j++) {
-                System.out.println("    " + jogadores[j].mostrarJog(i) + "    ");
+                System.out.println("    " + jogadores[j].mostrarJog(i));
             }
         }
         System.out.println("----------------------------");
         System.out.print("Total     ");
         for (int i = 0; i < contJ; i++) {
-            System.out.println("    " + jogadores[i].mostrarTotal() + "    ");
+            System.out.print("    " + jogadores[i].mostrarTotal() + "    ");
         }
     }
 

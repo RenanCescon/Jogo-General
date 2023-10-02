@@ -75,11 +75,12 @@ public class General {
                         return soma;
                 break;
             case 9:
+                cont = 0;
                 for (int i = 0; i < 6; i++){
-                    if((valores[i] == 3) || (valores[i] == 2))
-                        cont++;
+                    if((valores[i] == 1) || (valores[i] == 5))
+                        return 0;
                 }
-                if (cont == 2)
+                if (cont == 0)
                     return 25;
                 break;
             case 10:
