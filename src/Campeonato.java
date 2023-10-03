@@ -20,6 +20,9 @@ public class Campeonato {
             jogadores[contJ] = new Jogador(n);
             contJ++;
         }
+        else{
+            System.out.println("Não é possível inserir um novo jogador.");
+        }
     }
 
     public void excluirJogador(){
