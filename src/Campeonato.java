@@ -14,10 +14,12 @@ public class Campeonato {
         //Jogador aux = new Jogador();
         if (contJ < 10){
             Scanner sc = new Scanner(System.in);
-            String n;
+            String n, t;
             System.out.println("Digite o nome do novo jogador: ");
             n = sc.nextLine();
-            jogadores[contJ] = new Jogador(n);
+            System.out.println("Digite o tipo do novo jogador: (h,m)");
+            t = sc.nextLine();
+            jogadores[contJ] = new Jogador(n, t);
             contJ++;
         }
         else{
@@ -28,6 +30,11 @@ public class Campeonato {
     public void excluirJogador(){
         Scanner sc = new Scanner(System.in);
         String n;
+        System.out.println("Lista de jogadores: ");
+        for(int i = 0; i < contJ; i++){
+            System.out.printf("%s", jogadores[i].getNome() + "\t");
+        }
+        System.out.println();
         System.out.println("Digite o nome do jogador a ser retirado: ");
         n = sc.nextLine();
         int cont = 0;
@@ -41,7 +48,7 @@ public class Campeonato {
             }
             cont++;
         }
-        if ((cont == contJ) && (cont != 0)){
+        if ((cont == contJ + 1) && (cont != 0)){
             System.out.println("Não foi possível encontrar o jogador.");
         }
     }
@@ -51,19 +58,34 @@ public class Campeonato {
 
         for (int i = 0; i < 13; i++){
             for (int j = 0; j < contJ; j++){
-                jogadores[j].jogarDados();
-                jogadores[j].mostrarJogadas();
-                System.out.println();
-                jogadores[j].mostrarSeq();
-                System.out.println();
-                System.out.println("Para qual jogada deseja marcar? [1, 13] " + jogadores[j].getNome());
-                int jog = sc.nextInt();
-                while(jogadores[j].mostrarJog(jog - 1) != -1){
-                    System.out.println("Jogada inválida.");
-                    System.out.println("Escolha a nova jogada: ");
-                    jog = sc.nextInt();
+                if (jogadores[j].getTipo().equals("h")){
+                    jogadores[j].jogarDados();
+                    jogadores[j].mostrarJogadas();
+                    System.out.println();
+                    jogadores[j].mostrarSeq();
+                    System.out.println();
+                    System.out.println("Para qual jogada deseja marcar? [1, 13] " + jogadores[j].getNome());
+                    int jog = sc.nextInt();
+                    while(jogadores[j].mostrarJog(jog - 1) != -1){
+                        System.out.println("Jogada inválida.");
+                        System.out.println("Escolha a nova jogada: ");
+                        jog = sc.nextInt();
+                    }
+                    jogadores[j].escolherJogada(jog);
+                    System.out.println("A pontuação foi " + jogadores[j].mostrarJog(jog - 1));
+                    System.out.println();
                 }
-                jogadores[j].escolherJogada(jog);
+                else{
+                    jogadores[j].jogarDados();
+                    jogadores[j].mostrarJogadas();
+                    System.out.println();
+                    jogadores[j].mostrarSeq();
+                    //escolher sequencia
+                    jogadores[j].escolherJogada(i + 1);
+                    System.out.println("A maquina jogou " + (i + 1) + " e a pontuação foi " + jogadores[j].mostrarJog(i));
+                    System.out.println();
+                }
+                System.out.println("------------------------------------");
             }
         }
     }
@@ -72,22 +94,24 @@ public class Campeonato {
         System.out.println("-- Cartela de Resultados --");
         System.out.print("          ");
         for (int i = 0; i < contJ; i++) {
-            System.out.print(jogadores[i].getNome() + "    ");
+            System.out.printf("%s", jogadores[i].getNome() + "\t");
         }
         System.out.println();
         for (int i = 0; i < 13; i++) {
-            System.out.print((i + 1) + "       ");
-            if (i < 9)
-                System.out.print(" ");
+            if(i<9)
+                System.out.printf(" %s", (i + 1) + "\t");
+            else
+                System.out.printf("%s", (i + 1) + "\t");
+
             for (int j = 0; j < contJ; j++) {
-                System.out.print("    " + jogadores[j].mostrarJog(i));
+                System.out.printf("%s", jogadores[j].mostrarJog(i) + "\t");
             }
             System.out.println();
         }
         System.out.println("----------------------------");
         System.out.print("Total     ");
         for (int i = 0; i < contJ; i++) {
-            System.out.print("    " + jogadores[i].mostrarTotal());
+            System.out.print(jogadores[i].mostrarTotal() + "\t");
         }
         System.out.println();
     }

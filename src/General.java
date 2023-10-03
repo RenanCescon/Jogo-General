@@ -27,11 +27,14 @@ public class General implements Serializable{
     }
 
     public void imprimirJogadas(){
-        System.out.println(
-                "   1     2     3     4     5     6   7(T)  8(Q)  9(f) 10(S+) 11(S-) 12(G) 13(X)"
-        );
+        System.out.printf("%s", "1\t2\t3\t4\t5\t6\t7(T)\t8(Q)\t9(f)\t10(S+)\t11(S-)\t12(G)\t13(X)");
+        System.out.println();
         for (int i = 0; i < 13; i++){
-            System.out.print("  " + jogadas[i] + "  ");
+            if (jogadas[i] == -1){
+                System.out.printf("%s", "-\t");
+            }
+            else
+                System.out.printf("%s", jogadas[i] + "\t");
         }
     }
 
@@ -43,13 +46,6 @@ public class General implements Serializable{
             valores[dados[i] - 1] += 1;
             soma += dados[i];
         }
-
-        /*
-        for (int i = 0; i < 6; i++){
-            System.out.print(valores[i] + "   ");
-        }
-        System.out.println(soma);
-        */
 
         switch (n) {
             case 1:
