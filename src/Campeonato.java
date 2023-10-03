@@ -32,7 +32,7 @@ public class Campeonato {
             }
             cont++;
         }
-        if (cont == contJ){
+        if ((cont == contJ) && (cont != 0)){
             System.out.println("Não foi possível encontrar o jogador.");
         }
     }
@@ -52,11 +52,13 @@ public class Campeonato {
         System.out.println("-- Cartela de Resultados --");
         System.out.print("          ");
         for (int i = 0; i < contJ; i++) {
-            System.out.print(jogadores[i].getNome());
+            System.out.print(jogadores[i].getNome() + "    ");
         }
         System.out.println();
         for (int i = 0; i < 13; i++) {
-            System.out.print((i + 1) + "        ");
+            System.out.print((i + 1) + "       ");
+            if (i < 9)
+                System.out.print(" ");
             for (int j = 0; j < contJ; j++) {
                 System.out.print("    " + jogadores[j].mostrarJog(i));
             }
@@ -71,7 +73,7 @@ public class Campeonato {
     }
 
     public void gravarEmArquivo(){
-        
+
     }
 
     public void lerEmArquivo(){
