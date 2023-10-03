@@ -1,6 +1,8 @@
+import java.io.Serializable;
 import java.util.Random;
+import java.io.Serializable;
 
-public class Dado {
+public class Dado implements Serializable {
     private int sideUp;
 
     public Dado() {sideUp = 1;}

@@ -9,7 +9,7 @@ public class usaJogador {
         String s = sc.nextLine();
         j.adicionarNome(s);
 
-        j.escolherJogada();
+        //j.escolherJogada();
         System.out.println(j.mostrarTotal());
     }
 

@@ -1,9 +1,8 @@
-import java.util.Scanner;
+import java.io.Serializable;
 
-public class Jogador {
+public class Jogador implements Serializable{
     private String nome;
     private General gen = new General();
-    private Scanner sc = new Scanner(System.in);
 
     public Jogador(){nome = "a";}
     public Jogador(String n){nome = n;}
@@ -14,15 +13,13 @@ public class Jogador {
 
     public void jogarDados(){gen.rolarDados();}
 
-    public void escolherJogada(){
+    public void escolherJogada(int n){
         gen.rolarDados();
-        gen.imprimirDados();
-        System.out.println("Para qual jogada deseja marcar? [1, 13] " + nome);
-        int jog = sc.nextInt();
-        gen.pontuarJogada(jog);
+        gen.pontuarJogada(n);
     }
 
     public void mostrarJogadas(){gen.imprimirJogadas();}
     public int mostrarJog(int i){return gen.jogadaE(i);}
     public int mostrarTotal(){return gen.getPTotal();}
+    public void mostrarSeq(){gen.imprimirDados();}
 }

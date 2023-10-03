@@ -1,6 +1,6 @@
-import java.util.Scanner;
+import java.io.Serializable;
 
-public class General {
+public class General implements Serializable{
     private int[] dados = new int[5];
     private int[] jogadas = new int[13];
     private int pTotal = 0;
@@ -109,14 +109,6 @@ public class General {
     }
 
     public void pontuarJogada(int n){
-        if (jogadas[n - 1] != -1){
-            Scanner sc = new Scanner(System.in);
-            int aux;
-            System.out.println("Jogada inválida.");
-            System.out.println("Escolha a nova jogada: ");
-            aux = sc.nextInt();
-            pontuarJogada(aux);
-        }
         jogadas[n - 1] = validarJogada(n);
         pTotal += jogadas[n - 1];
     }
