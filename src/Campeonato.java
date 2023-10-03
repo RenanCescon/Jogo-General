@@ -77,12 +77,12 @@ public class Campeonato {
                 }
                 else{
                     jogadores[j].jogarDados();
+                    int m = jogadores[j].melhorJogada();
                     jogadores[j].mostrarJogadas();
                     System.out.println();
                     jogadores[j].mostrarSeq();
-                    //escolher sequencia
-                    jogadores[j].escolherJogada(i + 1);
-                    System.out.println("A maquina jogou " + (i + 1) + " e a pontuação foi " + jogadores[j].mostrarJog(i));
+                    jogadores[j].escolherJogada(m);
+                    System.out.println("A maquina jogou " + m + " e a pontuação foi " + jogadores[j].mostrarJog(m - 1));
                     System.out.println();
                 }
                 System.out.println("------------------------------------");

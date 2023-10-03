@@ -112,4 +112,22 @@ public class General implements Serializable{
     public int getPTotal(){return pTotal;}
 
     public int jogadaE(int n){return jogadas[n];}
+
+    public int maiorValor(){
+        int[] valores = new int[6];
+        int maior = 0, posM = -1;
+
+        for (int i = 0; i < 5; i++){
+            valores[dados[i] - 1] += 1;
+        }
+
+        for (int i = 0; i < 6; i++){
+            if (valores[i] > maior){
+                maior = valores[i];
+                posM = i;
+            }
+        }
+
+        return posM + 1;
+    }
 }
