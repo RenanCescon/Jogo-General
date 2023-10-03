@@ -7,11 +7,10 @@ public class Jogo {
         Menu m = new Menu();
         Campeonato camp = new Campeonato();
 
-        m.iniciarMenu();
-
         char c = 'z';
 
         while (c != 'g'){
+            m.iniciarMenu();
             System.out.println("Escolha sua opção: ");
             c = sc.nextLine().charAt(0);
             m.opcoes(c);
