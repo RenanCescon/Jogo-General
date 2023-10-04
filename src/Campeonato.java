@@ -92,26 +92,29 @@ public class Campeonato {
 
     public void mostrarCartela() {
         System.out.println("-- Cartela de Resultados --");
-        System.out.print("          ");
+        System.out.print("     ");
         for (int i = 0; i < contJ; i++) {
-            System.out.printf("%s", jogadores[i].getNome() + "\t");
+            System.out.printf("%10s", jogadores[i].getNome() + "\t");
         }
         System.out.println();
         for (int i = 0; i < 13; i++) {
-            if(i<9)
-                System.out.printf(" %s", (i + 1) + "\t");
+            System.out.printf("%5s", (i + 1));
+            /*if(i<9)
+                System.out.printf(" %10s", (i + 1) + "\t");
             else
-                System.out.printf("%s", (i + 1) + "\t");
-
+                System.out.printf("%10s", (i + 1) + "\t");
+            */
             for (int j = 0; j < contJ; j++) {
-                System.out.printf("%s", jogadores[j].mostrarJog(i) + "\t");
+                System.out.printf("%10s", jogadores[j].mostrarJog(i) + "\t");
             }
             System.out.println();
         }
-        System.out.println("----------------------------");
-        System.out.print("Total     ");
+        for(int i = 0; i <= contJ; i++)
+            System.out.print("----------");
+        System.out.println();
+        System.out.print("Total");
         for (int i = 0; i < contJ; i++) {
-            System.out.print(jogadores[i].mostrarTotal() + "\t");
+            System.out.printf("%10s", jogadores[i].mostrarTotal() + "\t");
         }
         System.out.println();
     }
