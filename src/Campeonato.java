@@ -19,6 +19,11 @@ public class Campeonato {
             n = sc.nextLine();
             System.out.println("Digite o tipo do novo jogador: (h,m)");
             t = sc.nextLine();
+            while ((!t.equals("h")) && (!t.equals("m"))){
+                System.out.println("Tipo inválido! Escolha entre m (máquina) e h (humano)");
+                System.out.println("Digite o tipo do novo jogador: (h,m)");
+                t = sc.nextLine();
+            }
             jogadores[contJ] = new Jogador(n, t);
             contJ++;
         }
