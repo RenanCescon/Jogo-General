@@ -106,6 +106,7 @@ public class Campeonato {
     }
 
     public void mostrarCartela() {
+        int vencedor = 0, maior = 0;
         System.out.println("-- Cartela de Resultados --");
         System.out.print("     ");
         for (int i = 0; i < contJ; i++) {
@@ -125,7 +126,13 @@ public class Campeonato {
         System.out.print("Total");
         for (int i = 0; i < contJ; i++) {
             System.out.printf("%10s", jogadores[i].mostrarTotal() + "\t");
+            if (jogadores[i].mostrarTotal() > maior){
+                vencedor = i;
+                maior = jogadores[i].mostrarTotal();
+            }
         }
+        System.out.println();
+        System.out.printf(vencer+"O vencedor foi %s com %s pontos !!!"+normal, jogadores[vencedor].getNome(), jogadores[vencedor].mostrarTotal());
         System.out.println();
     }
 
@@ -172,4 +179,7 @@ public class Campeonato {
             System.err.println("erro: " + ex.toString());
         }
     }
+
+    public static final String vencer = "\u001B[32m";
+    public static final String normal = "\u001B[0m";
 }
