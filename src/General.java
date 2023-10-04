@@ -27,14 +27,16 @@ public class General implements Serializable{
     }
 
     public void imprimirJogadas(){
-        System.out.printf("%s", "1\t2\t3\t4\t5\t6\t7(T)\t8(Q)\t9(f)\t10(S+)\t11(S-)\t12(G)\t13(X)");
+        for (int i = 1; i < 7; i++)
+            System.out.printf("%10s", i);
+        System.out.printf("%s", "        7(T)      8(Q)      9(f)    10(S+)    11(S-)     12(G)     13(X)");
         System.out.println();
         for (int i = 0; i < 13; i++){
             if (jogadas[i] == -1){
-                System.out.printf("%s", "-\t");
+                System.out.printf("%10s", "-");
             }
             else
-                System.out.printf("%s", jogadas[i] + "\t");
+                System.out.printf("%10s", jogadas[i]);
         }
     }
 
