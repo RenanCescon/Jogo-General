@@ -13,7 +13,10 @@ public class Jogo {
             m.iniciarMenu();
             System.out.println("Escolha sua opção: ");
             c = sc.nextLine().charAt(0);
-            m.opcoes(c);
+            if (c < 'g')
+                m.opcoes(c);
+            else
+                System.out.println("Opção inválida !");
         }
     }
 }

@@ -64,7 +64,7 @@ public class General implements Serializable{
                 return valores[5] * 6;
             case 7:
                 for (int i = 0; i < 6; i++)
-                    if (valores[i] == 3)
+                    if ((valores[i] == 3) || (valores[i] == 4))
                         return soma;
                 break;
             case 8:

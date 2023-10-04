@@ -41,14 +41,14 @@ public class Campeonato {
 
         for (int i = 0; i < contJ; i++){
             if ((jogadores[i].getNome()).equals(n)){
-                for (int j = i; j < contJ; j++)
+                for (int j = i; j < contJ - 1; j++)
                     jogadores[j] = jogadores[j + 1];
                 contJ--;
                 break;
             }
             cont++;
         }
-        if ((cont == contJ + 1) && (cont != 0)){
+        if ((cont == contJ + 1) || (cont != 0)){
             System.out.println("Não foi possível encontrar o jogador.");
         }
     }
@@ -66,6 +66,11 @@ public class Campeonato {
                     System.out.println();
                     System.out.println("Para qual jogada deseja marcar? [1, 13] " + jogadores[j].getNome());
                     int jog = sc.nextInt();
+                    if (jog > 13){
+                        System.out.println("Jogada inválida.");
+                        System.out.println("Escolha a jogada no intervalo entre 1 e 13: ");
+                        jog = sc.nextInt();
+                    }
                     while(jogadores[j].mostrarJog(jog - 1) != -1){
                         System.out.println("Jogada inválida.");
                         System.out.println("Escolha a nova jogada: ");
