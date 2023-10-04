@@ -61,6 +61,11 @@ public class Campeonato {
     public void iniciarCampeonato(){
         Scanner sc = new Scanner(System.in);
 
+        for (int i = 0; i < contJ; i++){
+            jogadores[i].zerarJogadasJ();
+            jogadores[i].zerarTotalJ();
+        }
+
         for (int i = 0; i < 13; i++){
             for (int j = 0; j < contJ; j++){
                 if (jogadores[j].getTipo().equals("h")){
@@ -109,11 +114,6 @@ public class Campeonato {
         System.out.println();
         for (int i = 0; i < 13; i++) {
             System.out.printf("%5s", (i + 1));
-            /*if(i<9)
-                System.out.printf(" %10s", (i + 1) + "\t");
-            else
-                System.out.printf("%10s", (i + 1) + "\t");
-            */
             for (int j = 0; j < contJ; j++) {
                 System.out.printf("%10s", jogadores[j].mostrarJog(i) + "\t");
             }

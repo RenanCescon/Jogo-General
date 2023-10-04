@@ -15,7 +15,7 @@ public class Jogo {
             c = sc.nextLine().charAt(0);
             if (c < 'g')
                 m.opcoes(c);
-            else
+            else if (c != 'g')
                 System.out.println("Opção inválida !");
         }
     }

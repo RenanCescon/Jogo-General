@@ -64,12 +64,12 @@ public class General implements Serializable{
                 return valores[5] * 6;
             case 7:
                 for (int i = 0; i < 6; i++)
-                    if ((valores[i] == 3) || (valores[i] == 4))
+                    if (valores[i] >= 3)
                         return soma;
                 break;
             case 8:
                 for (int i = 0; i < 6; i++)
-                    if (valores[i] == 4)
+                    if (valores[i] >= 4)
                         return soma;
                 break;
             case 9:
@@ -132,4 +132,10 @@ public class General implements Serializable{
 
         return posM + 1;
     }
+
+    public void zerarJogadas(){
+        for (int i = 0; i < 13; i++)
+            jogadas[i] = -1;
+    }
+    public void zerarTotal(){pTotal = 0;}
 }

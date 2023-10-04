@@ -49,4 +49,7 @@ public class Jogador implements Serializable{
             return 0;
         }
     }
+
+    public void zerarJogadasJ(){gen.zerarJogadas();}
+    public void zerarTotalJ(){gen.zerarTotal();}
 }
