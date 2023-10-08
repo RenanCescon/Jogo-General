@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Menu {
     private Campeonato camp = new Campeonato();
-    private Scanner sc = new Scanner(System.in);
 
+    // mostra as opções do menu
     public void iniciarMenu() {
         System.out.println("Opções do menu:");
         System.out.println("a - Incluir jogador.");
@@ -15,10 +15,8 @@ public class Menu {
         System.out.println("g - Sair da aplicação.");
     }
 
+    // chama a função específica para cada caso
     public void opcoes(char c) {
-
-        String nome = new String();
-
         switch(c) {
             case 'a':
                 camp.incluirJogador();
