@@ -14,9 +14,11 @@ public class Jogo {
             m.iniciarMenu();
             System.out.println("Escolha sua opção: ");
             c = sc.nextLine().charAt(0);
-            if (c < 'g')
+            if (c == 'g')
+                break;
+            if ((c < 'g') && (c >= 'a'))
                 m.opcoes(c);
-            else if (c != 'g')
+            else
                 System.out.println("Opção inválida !");
         }
     }

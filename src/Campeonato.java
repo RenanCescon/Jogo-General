@@ -58,12 +58,13 @@ public class Campeonato {
                 for (int j = i; j < contJ - 1; j++)
                     jogadores[j] = jogadores[j + 1];
                 contJ--;
+                cont--;
                 break;
             }
             cont++;
         }
         // informa se não foi encontrado o jogador digitado
-        if ((cont == contJ + 1) && (cont != 0)){
+        if ((cont == contJ) && (cont != 0)){
             System.out.println("Não foi possível encontrar o jogador.");
         }
     }
@@ -87,7 +88,7 @@ public class Campeonato {
                     System.out.println("Para qual jogada deseja marcar? [1, 13] " + jogadores[j].getNome());
                     int jog = sc.nextInt();
                     // verifica se a jogada é válida
-                    if (jog > 13){
+                    while ((jog > 13) || (jog < 1)){
                         System.out.println("Jogada inválida.");
                         System.out.println("Escolha a jogada no intervalo entre 1 e 13: ");
                         jog = sc.nextInt();
